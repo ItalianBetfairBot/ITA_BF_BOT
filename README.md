@@ -1,2 +1,2 @@
 # ITA_BF_BOT
-BOT per trading automatico du Betfair.it
+Progetto Base per BOT per trading automatico du Betfair.it
