@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:application.properties")
 public class ApiKeyManagement {
 
-    private String sessionToken=null;
+    private String sessionToken="";
    
     private static ApiKeyManagement instance = new ApiKeyManagement();
 
