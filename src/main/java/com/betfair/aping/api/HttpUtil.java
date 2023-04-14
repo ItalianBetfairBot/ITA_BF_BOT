@@ -13,6 +13,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import com.application.bot.session.ApiKeyManagement;
 import com.betfair.aping.enums.ApiNgOperation;
 //import com.betfair.aping.ApiNGDemo;
 import com.betfair.aping.exceptions.APINGException;
@@ -27,6 +28,7 @@ public class HttpUtil {
     private final String HTTP_HEADER_ACCEPT = "Accept";
     private final String HTTP_HEADER_ACCEPT_CHARSET = "Accept-Charset";
     private String resp = null;
+    private ApiKeyManagement apiKey = ApiKeyManagement.getInstance();
 
     public HttpUtil() {
         super();
@@ -65,7 +67,7 @@ public class HttpUtil {
                     .addHeader(HTTP_HEADER_CONTENT_TYPE, "application/json")
                     .addHeader(HTTP_HEADER_ACCEPT, "application/json")
                     .addHeader(HTTP_HEADER_ACCEPT_CHARSET, "UTF-8")
-                    .addHeader(HTTP_HEADER_X_APPLICATION, "")
+                    .addHeader(HTTP_HEADER_X_APPLICATION, apiKey.getMyBetfairKey(true))
                     .addHeader(HTTP_HEADER_X_AUTHENTICATION, ssoToken)
                     .url(URL)
                     .post(body)
